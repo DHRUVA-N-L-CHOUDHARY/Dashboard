@@ -19,7 +19,9 @@ const Sidebar = () => {
       <div className="px-4 sm:px-6 lg:px-8  ">
         <div className="flex flex-col items-center justify-center mt-16">
           <div className="flex items-center ">
-            <span className="text-lg font-bold text-gray-800">LOGO HERE</span>
+            <span className="text-3xl border-t-2 border-b-2 text-gray-300 p-4">
+              LOGO HERE
+            </span>
           </div>
         </div>
 
@@ -42,6 +44,15 @@ const Sidebar = () => {
             ))}
           </div>
         </nav>
+      </div>
+      <div className="h-20 w-full mt-56 ">
+        <div  className="flex p-4 ml-4">
+            <div className="h-12 w-12 rounded-full bg-black"></div>
+            <div className="flex flex-col text-black ml-6">
+                <div>Elon Musk</div>
+                <div>elon@twitter.com</div>
+            </div>
+        </div>
       </div>
     </div>
   );
