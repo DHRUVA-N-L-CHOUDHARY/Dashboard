@@ -79,16 +79,16 @@ const UserTable = () => {
         </Thead>
         <Tbody>
           {data.map((item, index) => (
-            <Tr className="bg-white border text-center" key={index}>
-              <Td className="py-4 px-6 border-y flex flex-col items-center justify-center">
+            <Tr className="bg-white border text-center border-b-2" key={index}>
+              <Td className="py-4 px-6  flex flex-col items-center justify-center">
                 <div>{item.userName}</div>
                 <div className="text-xs text-gray-400">{item.email}</div>
               </Td>
-              <Td className="py-4 px-6 border-y-2">{item.riskLevel}</Td>
-              <Td className="py-4 px-6 border-y-2">{item.triggerReason}</Td>
-              <Td className="py-4 px-6 border-y-2">{`${item.inQueue} days`}</Td>
-              <Td className="py-4 px-6 border-y-2">{item.dateAdded}</Td>
-              <Td className="py-4 px-6 border-y-2">
+              <Td className="py-4 px-6">{item.riskLevel}</Td>
+              <Td className="py-4 px-6 ">{item.triggerReason}</Td>
+              <Td className="py-4 px-6 ">{`${item.inQueue} days`}</Td>
+              <Td className="py-4 px-6 ">{item.dateAdded}</Td>
+              <Td className="py-4 px-6 ">
                 {item.previouslyReviewed}
               </Td>
             </Tr>
