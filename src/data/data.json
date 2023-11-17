@@ -76,6 +76,7 @@
             "riskLevel": "High",
             "actionReason": "Closed",
             "timeToClose": 14,
+            "dateAdded": "12 Oct, 2023",
             "reviewer":"Pratik",
             "reviewerEmail":"pratik@onjuno.com"
         },
@@ -85,6 +86,7 @@
             "riskLevel": "Low",
             "actionReason": "Cleared",
             "timeToClose": 15,
+            "dateAdded": "12 Oct, 2023",
             "reviewer":"Prashanth",
             "reviewerEmail":"prashanth@onjuno.com"
         },
