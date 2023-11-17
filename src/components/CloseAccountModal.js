@@ -7,14 +7,15 @@ const CloseAccountModal = () => {
   const [note, setNote] = useState('');
   const [chargeClosureFee, setChargeClosureFee] = useState(false);
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle the form submission logic here
     console.log({ email, wantToUAR, reason, note, chargeClosureFee });
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-80 overflow-y-auto h-full w-full flex items-center justify-center">
       <div className="bg-white p-5 rounded-lg h-3/5 w-4/12">
         <h2 className="text-xl text-gray-400 font-bold">Close account</h2>
         <form onSubmit={handleSubmit}>

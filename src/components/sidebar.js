@@ -15,7 +15,7 @@ function classNames(...classes) {
 
 const Sidebar = () => {
   return (
-    <div className="h-full w-1/5 min-h-screen shadow-md bg-white flex flex-col">
+    <div className="h-full w-1/5 min-h-screen shadow-md bg-white flex flex-col justify-between">
       <div className="px-4 sm:px-6 lg:px-8  ">
         <div className="flex flex-col items-center justify-center mt-16">
           <div className="flex items-center ">
@@ -45,7 +45,7 @@ const Sidebar = () => {
           </div>
         </nav>
       </div>
-      <div className="h-20 w-full mt-56 ">
+      <div className="h-20 w-full ">
         <div  className="flex p-4 ml-4">
             <div className="h-12 w-12 rounded-full bg-black"></div>
             <div className="flex flex-col text-black ml-6">

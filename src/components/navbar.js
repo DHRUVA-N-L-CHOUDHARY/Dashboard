@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RxCrossCircled } from "react-icons/rx";
 import { FaSearch } from "react-icons/fa";
+import CloseAccountModal from "./CloseAccountModal";
 
 const Navbar = () => {
   const active = "border-b-violet-900 border-b-2  text-violet-900 ";
   const inactive = "text-grey-500";
 
   const [activeComponent, setActiveComponent] = useState("Completed");
-
+  const [closeAccountModal, setCloseAccountModal] = useState(false);
   const triggerReason = ["IP Change", "FIFO"];
   const riskLevel = ['Low','Medium','High']
+  
 
   const [isTrigger, setIsTrigger] = useState(false);
   const [isRisk,setIsRisk] = useState(false)
 
+
+
   return (
-    <div className="px-5 w-full">
+    <>
+    <div className="px-5 w-full flex flex-col gap-5">
       <h1 className="font-semibold text-3xl my-2">Montoring</h1>
       <div className="flex justify-between border-b-grey-500 border-b-2 text-grey-500 mb-5">
         <div className="flex items-end">
@@ -36,7 +41,7 @@ const Navbar = () => {
             Completed
           </a>
         </div>
-        <div className="text-red-500 flex items-center px-3 py-1 mb-2 rounded-lg cursor-pointer bg-red-100">
+        <div onClick={() => setCloseAccountModal(true)}  className="text-red-500 flex items-center px-3 py-1 mb-2 rounded-lg cursor-pointer bg-red-100">
           <span className="mr-1">
             <RxCrossCircled />
           </span>
@@ -146,6 +151,8 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+    {closeAccountModal && <CloseAccountModal modalData={CloseAccountModal} />}
+    </>
   );
 };
 
