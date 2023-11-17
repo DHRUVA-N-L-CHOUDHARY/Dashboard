@@ -1,72 +1,16 @@
 import React from "react";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+import TableData from '../data/data.json'
+import { FiExternalLink } from "react-icons/fi";
 
 const UserTable = () => {
-  const data = [
-    {
-      userName: "Sam Altman",
-      email: "samaltman123@gmail.com",
-      riskLevel: "Medium",
-      triggerReason: "IP Change",
-      inQueue: 4,
-      dateAdded: "12 Oct, 2023",
-      previouslyReviewed: "Yes",
-      reviewedDate: "23 Aug, 2023",
-    },
-    {
-      userName: "Sameer Choubey",
-      email: "sameerchoubey123@gmail.com",
-      riskLevel: "High",
-      triggerReason: "FIFO",
-      inQueue: 4,
-      dateAdded: "12 Oct, 2023",
-      previouslyReviewed: "No",
-    },
-    {
-      userName: "Adarsh Panikkar",
-      email: "adarsh@onjuno.com",
-      riskLevel: "Low",
-      triggerReason: "IP Change",
-      inQueue: 5,
-      dateAdded: "12 Oct, 2023",
-      previouslyReviewed: "No",
-    },
-    {
-      userName: "Pratik Shetty",
-      email: "pratik3@gmail.com",
-      riskLevel: "High",
-      triggerReason: "FIFO",
-      inQueue: 5,
-      dateAdded: "12 Oct, 2023",
-      previouslyReviewed: "Yes",
-      reviewedDate: "12 Sep, 2023",
-    },
-    {
-      userName: "Elon Musk",
-      email: "elon@twitterceo.com",
-      riskLevel: "Low",
-      triggerReason: "FIFO",
-      inQueue: 5,
-      dateAdded: "12 Oct, 2023",
-      previouslyReviewed: "Yes",
-      reviewedDate: "12 Sep, 2023",
-    },
-    {
-      userName: "Trina Kundu",
-      email: "trina@onjuno.com",
-      riskLevel: "Low",
-      triggerReason: "FIFO",
-      inQueue: 5,
-      dateAdded: "12 Oct, 2023",
-      previouslyReviewed: "Yes",
-      reviewedDate: "12 Sep, 2023",
-    },
-  ];
+
+  console.log(TableData)
 
   return (
     <div className="overflow-x-auto">
-      <Table className="text-sm w-full text-gray-500">
+      <Table className="text-sm w-full text-gray-500 rounded-t-lg">
         <Thead className="text-xs text-gray-700 uppercase bg-gray-50">
           <Tr>
             <Th className="py-3 px-6 text-center">User</Th>
@@ -78,13 +22,20 @@ const UserTable = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((item, index) => (
+          {TableData.pendingUsers.map((item, index) => (
             <Tr className="bg-white border text-center border-b-2" key={index}>
-              <Td className="py-4 px-6  flex flex-col items-center justify-center">
-                <div>{item.userName}</div>
-                <div className="text-xs text-gray-400">{item.email}</div>
+              <Td className="py-4 px-4 flex justify-between items-center">
+                <div className="flex flex-col items-start">
+                  <div>{item.userName}</div>
+                  <div className="text-xs text-gray-400">{item.email}</div>
+                </div>
+                <div>
+                  <a className="cursor-pointer">
+                    <FiExternalLink color="blue" />
+                  </a>
+                </div>
               </Td>
-              <Td className="py-4 px-6">{item.riskLevel}</Td>
+              <Td className={`py-4 px-6 text-left font-semibold ${item.riskLevel == 'Medium' ? 'text-yellow-500' : null} ${item.riskLevel == 'Low' ? 'text-green-400' : null} ${item.riskLevel == 'High' ? 'text-red-400' : null}`}>{`• ${item.riskLevel}`}</Td>
               <Td className="py-4 px-6 ">{item.triggerReason}</Td>
               <Td className="py-4 px-6 ">{`${item.inQueue} days`}</Td>
               <Td className="py-4 px-6 ">{item.dateAdded}</Td>
