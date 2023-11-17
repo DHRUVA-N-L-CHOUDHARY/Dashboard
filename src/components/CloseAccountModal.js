@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { ImCross } from "react-icons/im";
 
-const CloseAccountModal = () => {
+const CloseAccountModal = ({onClose}) => {
   const [email, setEmail] = useState('');
   const [wantToUAR, setWantToUAR] = useState('no');
   const [reason, setReason] = useState('');
   const [note, setNote] = useState('');
   const [chargeClosureFee, setChargeClosureFee] = useState(false);
-
   
 
   const handleSubmit = (e) => {
@@ -16,8 +16,11 @@ const CloseAccountModal = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 overflow-y-auto h-full w-full flex items-center justify-center">
-      <div className="bg-white p-5 rounded-lg h-3/5 w-4/12">
-        <h2 className="text-xl text-gray-400 font-bold">Close account</h2>
+      <div className="bg-white p-5 rounded-lg w-4/12">
+        <div className='flex justify-between items-center'>
+          <h2 className="text-xl  font-bold">Close account</h2>
+          <ImCross onClick={onClose} className='cursor-pointer'/>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-400 text-sm font-bold mt-2 mb-2">Email</label>
@@ -35,7 +38,7 @@ const CloseAccountModal = () => {
             </label>
           </div>
           <div className="mb-4">
-            <label htmlFor="reason" className="block text-gray-700 text-sm font-bold mb-2">Reason</label>
+            <label htmlFor="reason" className="block text-gray-400 text-sm font-bold mb-2">Reason</label>
             <select id="reason" value={reason} onChange={(e) => setReason(e.target.value)} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
               <option value="">Select a reason</option>
               <option value="reason1">Reason 1</option>
@@ -43,19 +46,20 @@ const CloseAccountModal = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label htmlFor="note" className="block text-gray-700 text-sm font-bold mb-2">Note</label>
+            <label htmlFor="note" className="block text-gray-400 text-sm font-bold mb-2">Note</label>
             <textarea id="note" value={note} onChange={(e) => setNote(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" rows="3"></textarea>
           </div>
           <div className="mb-4">
             <label className="flex items-center justify-between">
-              <input type="checkbox" checked={chargeClosureFee} onChange={(e) => setChargeClosureFee(e.target.checked)} className="form-checkbox" />
-              <span className="mr-32 text-gray-400">Charge closure fee</span>
+              <div>
+                <input type="checkbox" checked={chargeClosureFee} onChange={(e) => setChargeClosureFee(e.target.checked)} className="form-checkbox" />
+                <span className="ml-1 text-gray-400">Charge closure fee</span>
+              </div>
               <div className="flex items-center justify-between">
-            <button type="submit" className=" bg-gray-200 hover:bg-violet-700 hover:text-white text-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Close Account</button>
-          </div>
+                <button type="submit" className=" bg-gray-200 hover:bg-violet-700 hover:text-white text-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Close Account</button>
+              </div>
             </label>
           </div>
-          
         </form>
       </div>
     </div>
